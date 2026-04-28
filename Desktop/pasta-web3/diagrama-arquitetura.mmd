@@ -1,0 +1,20 @@
+%% Diagrama de arquitetura do protocolo Web3
+flowchart TD
+    Usuario((Usuário))
+    Frontend([Frontend Web3])
+    ERC20[Token ERC-20]
+    NFT[NFT ERC-721]
+    Staking[Contrato de Staking]
+    Governanca[Governança (DAO)]
+    Oraculo[Oráculo (Chainlink)]
+
+    Usuario --> Frontend
+    Frontend --> ERC20
+    Frontend --> NFT
+    Frontend --> Staking
+    Frontend --> Governanca
+    Staking --> ERC20
+    Staking --> Oraculo
+    Governanca --> ERC20
+    Oraculo -.-> Staking
+    Frontend --> Oraculo
